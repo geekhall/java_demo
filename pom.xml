@@ -12,6 +12,7 @@
         <module>java_basic</module>
         <module>spring-01-ioc</module>
         <module>spring-02-hellospring</module>
+        <module>spring-03-ioc</module>
     </modules>
 
 
