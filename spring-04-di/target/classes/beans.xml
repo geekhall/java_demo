@@ -4,10 +4,68 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     https://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="address" class="cn.geekhall.pojo.Address">
+        <property name="address" value="北京"/>
+    </bean>
     <bean id="student" class="cn.geekhall.pojo.Student">
+
+<!--        普通值注入-->
         <property name="name" value="yiny"/>
 
+<!--        Bean注入-->
+        <property name="address" ref="address"/>
+
+<!--        数组注入-->
+        <property name="books">
+            <array>
+                <value>红楼梦</value>
+                <value>西游记</value>
+                <value>水浒传</value>
+                <value>三国演义</value>
+            </array>
+        </property>
+
+<!--        List注入-->
+        <property name="hobbys">
+            <list>
+                <value>听音乐</value>
+                <value>看电影</value>
+                <value>敲代码</value>
+            </list>
+        </property>
+
+<!--        Map注入-->
+        <property name="card">
+            <map>
+                <entry key="身份证" value="1234"/>
+                <entry key="护照" value="G1234"/>
+            </map>
+        </property>
+
+<!--        Set注入-->
+        <property name="games">
+            <set>
+                <value>塞尔达</value>
+                <value>马里奥派对</value>
+                <value>COC</value>
+            </set>
+        </property>
+
+<!--        null注入-->
+        <property name="wife">
+            <null/>
+        </property>
+
+<!--        Properties注入-->
+        <property name="info">
+            <props>
+                <prop key="学号">20101</prop>
+                <prop key="姓名">极客堂</prop>
+                <prop key="性别">不详</prop>
+            </props>
+        </property>
     </bean>
+
 
 
 </beans>
