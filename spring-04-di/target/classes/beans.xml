@@ -4,10 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="mysqlImpl" class="cn.geekhall.dao.UserDaoMysqlImpl"/>
-    <bean id="oracleImpl" class="cn.geekhall.dao.UserDaoOracleImpl"/>
-    <bean id="userServiceImpl" class="cn.geekhall.service.UserServiceImpl">
-        <property name="userDao" ref="oracleImpl"/>
+    <bean id="student" class="cn.geekhall.pojo.Student">
+        <property name="name" value="yiny"/>
+
     </bean>
 
 

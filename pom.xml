@@ -13,6 +13,7 @@
         <module>spring-01-ioc</module>
         <module>spring-02-hellospring</module>
         <module>spring-03-ioc</module>
+        <module>spring-04-di</module>
     </modules>
 
 

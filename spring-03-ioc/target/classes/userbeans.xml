@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="cn.geekhall.pojo.User">
+        <property name="name" value="Spring"/>
+    </bean>
+
+
+    <!--
+    id ：bean的唯一标识符，相当于变量名
+    class:对象所对应的类名，包名+路径
+    name :也是别名，而且name可以使用多个别名，分隔符可以使用空格、逗号、分号等。
+
+    -->
+    <bean id="user1" class="cn.geekhall.pojo.UserT" name="u u2,u3;u4"/>
+
+<!--    如果添加了别名，则可以使用别名user2来取得这个bean-->
+    <alias name="user" alias="user2"/>
+
+</beans>
