@@ -15,6 +15,7 @@
         <module>spring-03-ioc</module>
         <module>spring-04-di</module>
         <module>spring-05-autowired</module>
+        <module>spring-06-anno</module>
     </modules>
 
 
