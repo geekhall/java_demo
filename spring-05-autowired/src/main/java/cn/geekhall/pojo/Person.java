@@ -1,6 +1,10 @@
 package cn.geekhall.pojo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.lang.Nullable;
+
+import javax.annotation.Resource;
 
 /**
  * Person.java
@@ -12,11 +16,26 @@ public class Person {
 
     private String name;
 
-    @Autowired
+//    @Autowired
+//    @Qualifier(value = "cat222")
+//    private Cat cat;
+//    @Autowired
+//    @Qualifier(value = "dog111")
+//    private Dog dog;
+
+    @Resource(name = "cat111")
     private Cat cat;
-    @Autowired
+
+    @Resource
     private Dog dog;
 
+    public Person() {
+    }
+
+    // 加上@Nullable之后，即使name为null也不会报错。
+    public Person(@Nullable String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;
