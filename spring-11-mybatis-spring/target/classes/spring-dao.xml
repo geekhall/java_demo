@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    https://www.springframework.org/schema/beans/spring-beans.xsd
-    http://www.springframework.org/schema/context
-    https://www.springframework.org/schema/context/spring-context.xsd
-    http://www.springframework.org/schema/aop
-    https://www.springframework.org/schema/aop/spring-aop.xsd">
+    https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--
     mybatis-spring配置入门：
@@ -19,16 +13,32 @@
 <!--    <context:annotation-config/>-->
 
     <!--  Srping-jdbc 配置数据源 -->
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+<!--        <property name="url" value="jdbc:mysql://127.0.0.1:3316/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>-->
+<!--        <property name="username" value="mybatis"/>-->
+<!--        <property name="password" value="yy123456"/>-->
+<!--    </bean>-->
+
+    <!-- 使用dbcp连接池，需要导入 的Maven依赖包-->
+    <bean id="dataSourceDbcp" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close" scope="singleton">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://127.0.0.1:3316/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
         <property name="username" value="mybatis"/>
         <property name="password" value="yy123456"/>
+        <property name="initialSize" value="5"/>
+        <property name="maxTotal" value="80"/>
+        <property name="maxIdle" value="50"/>
+        <property name="minIdle" value="45"/>
+        <property name="maxWaitMillis" value="7000"/>
     </bean>
 
-
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSourceDbcp"/>
+    </bean>
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
+<!--        <property name="dataSource" ref="dataSource" />-->
+        <property name="dataSource" ref="dataSourceDbcp" />
         <!-- 绑定Mybatis配置文件 -->
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <property name="mapperLocations" value="classpath:cn/geekhall/mapper/UserMapper.xml"/>
