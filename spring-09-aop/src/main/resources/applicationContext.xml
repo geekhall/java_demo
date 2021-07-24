@@ -17,18 +17,18 @@
     <bean id="log" class="cn.geekhall.log.Log"/>
     <bean id="afterLog" class="cn.geekhall.log.AfterLog"/>
 
+<!--    方式一：使用原生Spring API接口-->
     <aop:config>
         <!--
          切入点 :
             expression：表达式；
             execution(要执行的位置！ * * * * *)
-
         -->
         <aop:pointcut id="pointcut" expression="execution(* cn.geekhall.service.UserServiceImpl.*(..))"/>
 
         <!-- 执行环绕增加 -->
         <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>
         <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
-
     </aop:config>
+
 </beans>

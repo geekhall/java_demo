@@ -17,18 +17,13 @@
     <bean id="log" class="cn.geekhall.log.Log"/>
     <bean id="afterLog" class="cn.geekhall.log.AfterLog"/>
 
-<!--    方式一：使用原生Spring API接口-->
-    <aop:config>
-        <!--
-         切入点 :
-            expression：表达式；
-            execution(要执行的位置！ * * * * *)
-        -->
-        <aop:pointcut id="pointcut" expression="execution(* cn.geekhall.service.UserServiceImpl.*(..))"/>
-
-        <!-- 执行环绕增加 -->
-        <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>
-        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
-    </aop:config>
+    <!--    方式三： 使用注解-->
+    <bean id="diy" class="cn.geekhall.diy.AnnotationPointCut"/>
+    <!--
+    开启AOP注解支持
+    proxy-target-class="false" 表示使用JDK实现，true表示使用cglib实现，默认为false。
+    -->
+    <aop:aspectj-autoproxy proxy-target-class="false"/>
+    <!--    <aop:aspectj-autoproxy/>-->
 
 </beans>
