@@ -16,6 +16,7 @@
         <module>spring-04-di</module>
         <module>spring-05-autowired</module>
         <module>spring-06-anno</module>
+        <module>spring-07-appconf</module>
     </modules>
 
 
