@@ -25,12 +25,5 @@ public class AppTest {
         for (User user : users) {
             System.out.println(user);
         }
-
-        UserMapper userMapper2 = context.getBean("userMapper2", UserMapper.class);
-        List<User> users2 = userMapper2.getUsers();
-
-        for (User user : users2) {
-            System.out.println(user);
-        }
     }
 }
