@@ -30,16 +30,7 @@
         <property name="maxTotal" value="80"/>
         <property name="maxIdle" value="50"/>
         <property name="minIdle" value="45"/>
-        <property name="maxWaitMillis" value="6000"/>
-        <property name="removeAbandonedTimeout" value="180"/>
-
-        <!-- sql 心跳 -->
-        <property name="testWhileIdle" value="true"/>
-        <property name="testOnBorrow" value="false"/>
-        <property name="testOnReturn" value="false"/>
-        <property name="validationQuery" value="select 1"/>
-        <property name="timeBetweenEvictionRunsMillis" value="600000"/>
-        <property name="numTestsPerEvictionRun" value="100"/>
+        <property name="maxWaitMillis" value="7000"/>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
