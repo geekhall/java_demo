@@ -7,10 +7,11 @@
     https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+<!--    p 表示property，p命名空间注入-->
     <bean id="user" class="cn.geekhall.pojo.User" c:name="king" c:age="20">
     </bean>
 
-
+<!--    c 表示Constructor， 表示构造器-->
     <bean id="user2" class="cn.geekhall.pojo.User" p:age="18" p:name="eric">
 
     </bean>
