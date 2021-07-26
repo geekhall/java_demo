@@ -22,6 +22,7 @@
         <module>spring-11-mybatis-spring</module>
         <module>spring-12-transaction</module>
         <module>mybatis-01</module>
+        <module>basic-10-jdbc</module>
     </modules>
 
 
