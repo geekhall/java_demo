@@ -23,6 +23,7 @@
         <module>spring-12-transaction</module>
         <module>mybatis-01</module>
         <module>basic-10-jdbc</module>
+        <module>mybatis-02</module>
     </modules>
 
 

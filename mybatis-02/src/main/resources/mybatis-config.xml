@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!--    引入外部配置文件，内部属性和外部文件都有时，优先使用外部配置文件中的。-->
+    <properties resource="db.properties">
+        <property name="username" value="mybatis"/>
+        <property name="password" value="yy1234567"/>
+    </properties>
+
+<!--    类型别名是为Java类型设置一个短的名字，只和XML配置有关，存在的意义仅在于用来减少类完全限定名的冗余-->
+    <typeAliases>
+        <typeAlias type="cn.geekhall.pojo.User" alias="User"/>
+        <!-- 也可以指定一个包名， MyBatis会在包名下面搜索需要的JavaBean。-->
+        <package name="cn.geekhall.pojo"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+        <environment id="test">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3316/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
+                <property name="username" value="mybatis"/>
+                <property name="password" value="yy123456"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+    <!-- 每一个Mapper.xml都需要在MyBatis核心配置文件中注册！-->
+    <mappers>
+        <mapper class="cn.geekhall.dao.UserMapper"/>
+        <mapper class="cn.geekhall.dao.UserDao"/>
+    </mappers>
+</configuration>
