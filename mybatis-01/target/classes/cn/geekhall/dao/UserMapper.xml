@@ -8,12 +8,20 @@
         select * from mybatis.user
     </select>
 
+    <select id="getUserLike" resultType="user">
+        select * from mybatis.user where name like #{value}
+    </select>
+
     <select id="getUserById" resultType="user">
         select * from mybatis.user where id = #{id}
     </select>
 
     <insert id="addUser" parameterType="cn.geekhall.pojo.User">
         insert into mybatis.user (id, name, pwd) values (#{id},#{name},#{pwd})
+    </insert>
+
+    <insert id="addUser2" parameterType="map">
+        insert into mybatis.user (id, name, pwd) values (#{user_id},#{user_name},#{pwd})
     </insert>
 
     <update id="updateUser" parameterType="cn.geekhall.pojo.User">

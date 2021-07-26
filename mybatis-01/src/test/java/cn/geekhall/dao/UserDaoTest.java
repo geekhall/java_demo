@@ -5,6 +5,7 @@ import cn.geekhall.util.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -39,7 +40,19 @@ public class UserDaoTest {
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         User user = mapper.getUserById(1);
         System.out.println(user);
+        sqlSession.close();
 
+    }
+
+    @Test
+    public void testGetUserLike(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> userList = mapper.getUserLike("%K%");
+        for (User user : userList) {
+            System.out.println(user);
+        }
+        sqlSession.close();
     }
 
     @Test
@@ -53,6 +66,24 @@ public class UserDaoTest {
         sqlSession.commit();
         sqlSession.close();
     }
+
+    @Test
+    public void testAddUser2(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        HashMap<String, Object> userMap = new HashMap<String, Object>();
+        userMap.put("user_id", 10);
+        userMap.put("user_name", "map_user");
+        userMap.put("pwd", "m123456");
+
+        int res = mapper.addUser2(userMap);
+        if (res > 0) {
+            System.out.println("插入成功!");
+        }
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
     @Test
     public void testUpdateUser(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
@@ -69,7 +100,7 @@ public class UserDaoTest {
     public void testDeleteUser(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        if (mapper.deleteUser(5) > 0) {
+        if (mapper.deleteUser(10) > 0) {
             System.out.println("删除成功!");
         }
         sqlSession.commit();
