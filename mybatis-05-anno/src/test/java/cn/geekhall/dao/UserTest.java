@@ -57,7 +57,6 @@ public class UserTest {
         }
         sqlSession.close();
     }
-    
 
     @Test
     public void deleteUserTest(){
