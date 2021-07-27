@@ -17,6 +17,11 @@ public interface UserMapper {
     // 模糊查询
     List<User> getUserLike(String value);
 
+    // 分页查询
+    List<User> getUserByLimit(Map<String, Integer> map);
+
+    List<User> getUserByRowBounds();
+
     // 根据ID查询用户
     User getUserById(int id);
 
