@@ -1,7 +1,7 @@
 package cn.geekhall.dao;
 
 import cn.geekhall.pojo.User;
-import cn.geekhall.util.MybatisUtils;
+import cn.geekhall.utils.MybatisUtils;
 
 import java.util.List;
 

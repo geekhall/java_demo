@@ -27,6 +27,9 @@
         <module>mybatis-03</module>
         <module>mybatis-04</module>
         <module>mybatis-05-anno</module>
+        <module>mybatis-06-one2many</module>
+        <module>mybatis-07-many2one</module>
+        <module>mybatis-08-dynamicsql</module>
     </modules>
 
 

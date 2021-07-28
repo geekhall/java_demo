@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--    引入外部配置文件，内部属性和外部文件都有时，优先使用外部配置文件中的。-->
+    <properties resource="db.properties">
+        <property name="username" value="mybatis"/>
+        <property name="password" value="yy1234567"/>
+    </properties>
+
+    <!-- mybatis 日志功能  -->
+<!--    <settings>-->
+<!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+<!--    </settings>-->
+
+    <typeAliases>
+        <!-- 也可以指定一个包名， MyBatis会在包名下面搜索需要的JavaBean。-->
+        <package name="cn.geekhall.bean"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+        <environment id="test">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://127.0.0.1:3316/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
+                <property name="username" value="mybatis"/>
+                <property name="password" value="yy123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--    绑定接口-->
+    <mappers>
+        <mapper class="cn.geekhall.dao.TeacherMapper"/>
+        <mapper class="cn.geekhall.dao.StudentMapper"/>
+    </mappers>
+
+</configuration>

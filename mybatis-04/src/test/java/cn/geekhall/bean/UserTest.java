@@ -1,7 +1,7 @@
 package cn.geekhall.bean;
 
 import cn.geekhall.dao.UserMapper;
-import cn.geekhall.util.MybatisUtils;
+import cn.geekhall.utils.MybatisUtils;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
