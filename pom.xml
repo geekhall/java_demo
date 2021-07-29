@@ -30,6 +30,8 @@
         <module>mybatis-06-one2many</module>
         <module>mybatis-07-many2one</module>
         <module>mybatis-08-dynamicsql</module>
+        <module>mybatis-09-cache</module>
+        <module>springmvc-01-servlet</module>
     </modules>
 
 
@@ -46,6 +48,21 @@
             <version>5.3.6</version>
         </dependency>
 
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
 
     </dependencies>
 </project>

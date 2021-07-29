@@ -12,6 +12,8 @@
     <settings>
         <!-- mybatis 日志功能  -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="cacheEnabled" value="true"/>
     </settings>
 
     <typeAliases>
@@ -43,7 +45,7 @@
 
     <!--    绑定接口-->
     <mappers>
-        <mapper class="cn.geekhall.dao.BlogMapper"/>
+        <mapper class="cn.geekhall.dao.UserMapper"/>
     </mappers>
 
 </configuration>
