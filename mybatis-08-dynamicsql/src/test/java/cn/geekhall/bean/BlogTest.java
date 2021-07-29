@@ -6,6 +6,7 @@ import cn.geekhall.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -77,6 +78,37 @@ public class BlogTest {
         int res = mapper.updateBlog(map);
         if (res > 0){
             System.out.println("更新成功！");
+        }
+        sqlSession.close();
+    }
+
+    @Test
+    public void queryIfTest(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+        HashMap map = new HashMap();
+        map.put("author", "极客堂");
+        map.put("title", "flask教程");
+        List<Blog> blogs = mapper.queryBlogIF2(map);
+        for (Blog blog : blogs) {
+            System.out.println(blog);
+        }
+        sqlSession.close();
+    }
+
+    @Test
+    public void queryDynaTest(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+        HashMap map = new HashMap();
+        List<String> titles= new ArrayList<String>();
+        titles.add("flask教程");
+        titles.add("Django教程");
+        map.put("titles", titles);
+
+        List<Blog> blogs = mapper.queryBlogDyna(map);
+        for (Blog blog : blogs) {
+            System.out.println(blog);
         }
         sqlSession.close();
     }

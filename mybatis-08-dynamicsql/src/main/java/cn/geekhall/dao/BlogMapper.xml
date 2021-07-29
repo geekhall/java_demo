@@ -47,5 +47,40 @@
             </if>
         </set>
         where id = #{id}
+        <trim prefix="WHERE" prefixOverrides="AND |OR">
+            ...
+        </trim>
+        <trim prefix="" prefixOverrides="" suffix="" suffixOverrides="">
+
+        </trim>
     </update>
+
+
+    <sql id="if-title-author">
+        <if test="title != null">
+            title = #{title}
+        </if>
+        <if test="author != null">
+            and author = #{author}
+        </if>
+    </sql>
+
+    <select id="queryBlogIF2" parameterType="map" resultType="blog">
+        select * from mybatis.blog
+        <where>
+            <include refid="if-title-author"/>
+        </where>
+    </select>
+
+    <select id="queryBlogDyna" parameterType="map" resultType="blog">
+        select * from mybatis.blog
+        <where>
+            <foreach collection="titles" item="title" open="and (" close=")" separator="or">
+                title = #{title}
+            </foreach>
+
+        </where>
+
+    </select>
+
 </mapper>
