@@ -33,6 +33,8 @@
         <module>mybatis-09-cache</module>
         <module>springmvc-01-servlet</module>
         <module>springmvc-02-hellomvc</module>
+        <module>springmvc-03-anno</module>
+        <module>springmvc-04-controller</module>
     </modules>
 
 

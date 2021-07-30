@@ -10,7 +10,7 @@
     <!-- 处理器适配器 HandlerAdapter -->
     <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
 
-    <!-- 视图解析器 -->
+    <!-- 视图解析器 / 模版引擎 ThymeLeaf Freemarker... -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
         <!-- 前缀 -->
         <property name="prefix" value="/WEB-INF/jsp/"/>
