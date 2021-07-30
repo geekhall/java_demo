@@ -21,7 +21,7 @@ public class HelloController implements Controller {
         mv.addObject("msg", "HelloSpringMVC!");
 
         // 封装要跳转的视图，放在ModelAndView。
-        mv.setViewName("Hello"); // : /WEB-INF/jsp/hello.jsp
+        mv.setViewName("hello"); // : /WEB-INF/jsp/hello.jsp
         return mv;
     }
 }
