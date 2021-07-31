@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * RestfulController.java
@@ -29,6 +30,15 @@ public class RestfulController {
         int res = a + b;
 
         model.addAttribute("msg", "restful add method result :" + res);
+        return "test";
+    }
+
+    // http://localhost:8080/springmvc_04_controller/restful_add_str/1/2   限定只能通过GET方法访问，POST会报404
+    @RequestMapping(name="/restful_add_str/{a}/{b}", method = RequestMethod.GET)
+    public String restful_add(@PathVariable int a, @PathVariable String b, Model model){
+        String res = a + b;
+
+        model.addAttribute("msg", "restful String add method result :" + res);
         return "test";
     }
 
