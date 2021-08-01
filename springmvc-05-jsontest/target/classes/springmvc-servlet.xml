@@ -26,7 +26,22 @@
     这两个实例分别在类级别和方法级别处理
     而annotation-driven配置帮助我们自动完成上述两个实例的注入。
     -->
-    <mvc:annotation-driven/>
+
+    <!-- Jackson 的JSON乱码问题配置 -->
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8"/>
+            </bean>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
+                        <property name="failOnEmptyBeans" value="false"/>
+                    </bean>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
 
     <!-- 视图解析器 / 模版引擎 ThymeLeaf Freemarker... -->
