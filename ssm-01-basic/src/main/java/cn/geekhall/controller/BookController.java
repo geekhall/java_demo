@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -66,6 +67,13 @@ public class BookController {
             System.out.println("更新书籍成功 ++++++++ " + book );
         }
         return "redirect:/book/allBook"; // 重定向到我们的@RequestMapping("/allBook")
+    }
+
+    // 删除书籍
+    @RequestMapping("/deleteBook/{book_id}")
+    public String deleteBook(@PathVariable("book_id") int id){
+        bookService.delBook(id);
+        return "redirect:/book/allBook";
     }
 
 }

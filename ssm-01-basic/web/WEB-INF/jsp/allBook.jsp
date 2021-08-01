@@ -58,7 +58,7 @@
                     <td>${book.count}</td>
                     <td>${book.detail}</td>
                     <td><a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.id}">修改</a>&nbsp;｜
-                        &nbsp; <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toDeleteBook">删除</a></td>
+                        &nbsp; <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/deleteBook/${book.id}">删除</a></td>
                 </tr>
             </c:forEach>
             </tbody>
