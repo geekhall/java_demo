@@ -14,7 +14,7 @@
     </delete>
 
     <update id="updateBook" parameterType="cn.geekhall.bean.Book">
-        update mybatis.book set name=#{name}, count=#{count} where id=#{id}
+        update mybatis.book set name=#{name}, count=#{count}, detail=#{detail} where id=#{id}
     </update>
 
     <select id="queryBookById" parameterType="int" resultType="cn.geekhall.bean.Book">

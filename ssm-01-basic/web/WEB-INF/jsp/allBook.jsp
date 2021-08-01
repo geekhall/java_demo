@@ -12,13 +12,18 @@
     <title>Title</title>
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
@@ -42,17 +47,20 @@
                 <th>书籍名称</th>
                 <th>书籍数量</th>
                 <th>书籍详情</th>
+                <th>操作</th>
             </tr>
             </thead>
             <tbody>
-                <c:forEach var="book" items="${books}">
-                    <tr>
-                        <td>${book.id}</td>
-                        <td>${book.name}</td>
-                        <td>${book.count}</td>
-                        <td>${book.detail}</td>
-                    </tr>
-                </c:forEach>
+            <c:forEach var="book" items="${books}">
+                <tr>
+                    <td>${book.id}</td>
+                    <td>${book.name}</td>
+                    <td>${book.count}</td>
+                    <td>${book.detail}</td>
+                    <td><a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.id}">修改</a>&nbsp;｜
+                        &nbsp; <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toDeleteBook">删除</a></td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </div>

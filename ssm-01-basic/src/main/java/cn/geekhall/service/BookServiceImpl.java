@@ -26,7 +26,7 @@ public class BookServiceImpl implements BookService {
         return bookMapper.updateBook(book);
     }
 
-    public int queryBookById(int id) {
+    public Book queryBookById(int id) {
         return bookMapper.queryBookById(id);
     }
 

@@ -15,7 +15,7 @@ public interface BookMapper {
     int addBook(Book book);
     int delBook(@Param("id") int id);
     int updateBook(Book book);
-    int queryBookById(@Param("id") int id);
+    Book queryBookById(@Param("id") int id);
     List<Book> getAllBooks();
 
 }

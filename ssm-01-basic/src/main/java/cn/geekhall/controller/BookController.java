@@ -36,7 +36,7 @@ public class BookController {
 
     // 跳转到增加书籍页面
     @RequestMapping("/toAddBook")
-    public String addBook(){
+    public String toAddBook(){
         return "addBook";
     }
 
@@ -47,4 +47,25 @@ public class BookController {
         bookService.addBook(book);
         return "redirect:/book/allBook"; // 重定向到我们的@RequestMapping("/allBook")
     }
+
+    // 跳转到修改书籍页面
+    @RequestMapping("/toUpdateBook")
+    public String toUpdateBook(int id, Model model){
+        Book book = bookService.queryBookById(id);
+        model.addAttribute("old_book", book);
+        return "updateBook";
+    }
+
+    // 跳转到增加书籍页面
+    @RequestMapping("/updateBook")
+    public String updateBook(Book book){
+        System.out.println("updateBook ================================================> " + book);
+
+        int res = bookService.updateBook(book);
+        if (res > 0 ){
+            System.out.println("更新书籍成功 ++++++++ " + book );
+        }
+        return "redirect:/book/allBook"; // 重定向到我们的@RequestMapping("/allBook")
+    }
+
 }
