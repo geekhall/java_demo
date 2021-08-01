@@ -40,6 +40,7 @@
         <module>springmvc-05-json</module>
         <module>springmvc-05-json</module>
         <module>springmvc-05-jsontest</module>
+        <module>ssm-01-basic</module>
     </modules>
 
 

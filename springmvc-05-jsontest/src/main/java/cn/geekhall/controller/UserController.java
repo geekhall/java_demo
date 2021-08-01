@@ -2,6 +2,7 @@ package cn.geekhall.controller;
 
 import cn.geekhall.bean.User;
 import cn.geekhall.utils.JsonUtils;
+import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -53,18 +54,7 @@ public class UserController {
     @RequestMapping(value="/json3")
     @ResponseBody  // 不走视图解析器，直接返回一个字符串
     public String json3() throws JsonProcessingException {
-        List<User> userList = new ArrayList<User>();
-        User user1  = new User(1, "极客堂1", 18);
-        User user2  = new User(2, "极客堂2", 18);
-        User user3  = new User(3, "极客堂3", 18);
-        User user4  = new User(4, "极客堂4", 18);
-
-        userList.add(user1);
-        userList.add(user2);
-        userList.add(user3);
-        userList.add(user4);
-
-        return JsonUtils.getJson(userList);
+        return JsonUtils.getJson(getUserList());
     }
 
     @RequestMapping(value="/json4")
@@ -81,5 +71,28 @@ public class UserController {
         mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         Date date = new Date();
         return mapper.writeValueAsString(date);
+    }
+
+
+    // fastjson
+    // [{"age":18,"id":1,"name":"极客堂1"},{"age":18,"id":2,"name":"极客堂2"},{"age":18,"id":3,"name":"极客堂3"},{"age":18,"id":4,"name":"极客堂4"}]
+    @RequestMapping(value="/json6")
+    @ResponseBody  // 不走视图解析器，直接返回一个字符串
+    public String json6() throws JsonProcessingException {
+        return JSON.toJSONString(getUserList());
+    }
+
+    public static List<User> getUserList(){
+        List<User> userList = new ArrayList<User>();
+        User user1  = new User(1, "极客堂1", 18);
+        User user2  = new User(2, "极客堂2", 18);
+        User user3  = new User(3, "极客堂3", 18);
+        User user4  = new User(4, "极客堂4", 18);
+
+        userList.add(user1);
+        userList.add(user2);
+        userList.add(user3);
+        userList.add(user4);
+        return userList;
     }
 }
