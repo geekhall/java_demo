@@ -34,6 +34,10 @@ public class BookServiceImpl implements BookService {
         return bookMapper.getAllBooks();
     }
 
+    public Book queryBookByName(String bookName) {
+        return bookMapper.queryBookByName(bookName);
+    }
+
     public void setBookMapper(BookMapper bookMapper) {
         this.bookMapper = bookMapper;
     }

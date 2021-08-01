@@ -17,5 +17,5 @@ public interface BookMapper {
     int updateBook(Book book);
     Book queryBookById(@Param("id") int id);
     List<Book> getAllBooks();
-
+    Book queryBookByName(@Param("name") String bookName);
 }

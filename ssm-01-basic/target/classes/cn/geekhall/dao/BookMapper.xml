@@ -25,5 +25,9 @@
         select * from mybatis.book
     </select>
 
+    <select id="queryBookByName" resultType="cn.geekhall.bean.Book">
+        select * from mybatis.book where name=#{name}
+    </select>
+
 
 </mapper>

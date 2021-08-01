@@ -38,6 +38,17 @@
         <div class="col">
             <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddBook">添加书籍</a>
         </div>
+        <div class="col">
+            <form class="row g-3 form-inline" action="${pageContext.request.contextPath}/book/queryBook" method="post">
+                <div class="col-auto">
+                    <input type="text" class="form-control" id="queryBookName" name="queryBookName" placeholder="请输入要查询的书籍">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">查询</button>
+                </div>
+            </form>
+
+        </div>
     </div>
     <div class="row">
         <table class="table table-view">
