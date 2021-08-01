@@ -2,6 +2,7 @@ package cn.geekhall.service;
 
 import cn.geekhall.bean.Book;
 import cn.geekhall.dao.BookMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

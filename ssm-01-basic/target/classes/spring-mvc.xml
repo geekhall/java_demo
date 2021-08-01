@@ -10,8 +10,20 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <import resource="classpath:spring-dao.xml"/>
-    <import resource="classpath:spring-mvc.xml"/>
-    <import resource="classpath:spring-service.xml"/>
+    <!-- 1. 注解驱动 -->
+    <mvc:annotation-driven/>
+
+    <!-- 2. 静态资源过滤 -->
+    <mvc:default-servlet-handler/>
+
+    <!-- 3. 扫描包  -->
+    <context:component-scan base-package="cn.geekhall.controller"/>
+
+    <!-- 4. 视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
 
 </beans>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 配置数据源， 交给Spring去做 -->
+
+    <typeAliases>
+<!--        <typeAlias type="cn.geekhall.bean.User" alias="User"/>-->
+        <!-- 也可以指定一个包名， MyBatis会在包名下面搜索需要的JavaBean。-->
+        <package name="cn.geekhall.bean"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper class="cn.geekhall.dao.BookMapper"/>
+    </mappers>
+
+</configuration>
