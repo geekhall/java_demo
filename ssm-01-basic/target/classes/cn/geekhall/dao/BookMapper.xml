@@ -6,7 +6,7 @@
 <mapper namespace="cn.geekhall.dao.BookMapper">
 
     <insert id="addBook" parameterType="cn.geekhall.bean.Book">
-        insert into mybatis.book (name, title, detail) values (#{name}, #{count}, #{detail})
+        insert into mybatis.book (name, count, detail) values (#{name}, #{count}, #{detail})
     </insert>
 
     <delete id="delBook" parameterType="int">
