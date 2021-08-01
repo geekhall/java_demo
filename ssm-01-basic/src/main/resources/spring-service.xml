@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 1. 扫描Service下面的包 -->
+    <context:component-scan base-package="cn.geekhall.service"/>
+
+
+    <!-- 2. 将我们所有的业务类，注入到Spring，可以通过配置或者注解的方式实现。 -->
+    <bean id="BookServiceImpl"  class="cn.geekhall.service.BookServiceImpl">
+        <!--
+            这里的 bookMapper 的使用前提是spring-service.xml与spring-dao.xml 和 applicationContext.xml 需要在同一个工程的上下文中，
+            或者使用：
+                <import resource="classpath:spring-dao.xml" />
+                <import resource="classpath:spring-service.xml" />
+            来导入才可以。
+
+            或者也可以使用注解 @Service 和 @Autowired 来注入。
+         -->
+        <property name="bookMapper" ref="bookMapper"/>
+    </bean>
+
+    <!-- 3. 声明式事务配置。 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 注入数据源 -->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+    <!-- 4. AOP事务支持。 -->
+</beans>
