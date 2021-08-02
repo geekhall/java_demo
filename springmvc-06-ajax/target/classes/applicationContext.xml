@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       https://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop
+       https://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/mvc
+       https://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/cache
+       https://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <context:component-scan base-package="cn.geekhall.controller"/>
+
+    <!-- 静态资源过滤 -->
+    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven/>
+
+    <!-- JSON乱码配置 -->
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8"/>
+            </bean>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
+                        <property name="failOnEmptyBeans" value="false"/>
+                    </bean>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!-- 视图解析器 -->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+    <!-- 拦截器配置 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- /** 表示包括这个请求下面的所有的请求 -->
+            <mvc:mapping path="/**"/>
+            <bean class="cn.geekhall.config.MyInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <!-- /** 表示包括这个请求下面的所有的请求 -->
+            <mvc:mapping path="/user/**"/>
+            <bean class="cn.geekhall.config.LoginInterceptor"/>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
+    
+</beans>
