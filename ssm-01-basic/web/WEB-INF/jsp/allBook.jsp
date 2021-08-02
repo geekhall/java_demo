@@ -41,6 +41,7 @@
         </div>
         <div class="col">
             <form class="row g-3 form-inline" action="${pageContext.request.contextPath}/book/queryBook" method="post">
+                <span style="color: red;">${error}</span>
                 <div class="col-auto">
                     <input type="text" class="form-control" id="queryBookName" name="queryBookName" placeholder="请输入要查询的书籍">
                 </div>
@@ -69,8 +70,9 @@
                     <td>${book.name}</td>
                     <td>${book.count}</td>
                     <td>${book.detail}</td>
-                    <td><a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.id}">修改</a>&nbsp;｜
-                        &nbsp; <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/deleteBook/${book.id}">删除</a></td>
+                    <td>
+                        <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.id}">修改</a>&nbsp;｜
+                        &nbsp;<a class="btn btn-primary" href="${pageContext.request.contextPath}/book/deleteBook/${book.id}">删除</a></td>
                 </tr>
             </c:forEach>
             </tbody>
