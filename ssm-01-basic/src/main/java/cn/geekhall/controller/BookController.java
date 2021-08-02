@@ -82,7 +82,12 @@ public class BookController {
     public String queryBookName(String queryBookName, Model model){
         Book book = bookService.queryBookByName(queryBookName);
         List<Book> books = new ArrayList<Book>();
-        books.add(book);
+        if (book == null){
+            books=bookService.getAllBooks();
+            model.addAttribute("error", "未查到");
+        } else {
+            books.add(book);
+        }
         model.addAttribute("books", books);
         return "allBook";
 

@@ -37,6 +37,7 @@
     <div class="row">
         <div class="col">
             <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddBook">添加书籍</a>
+            <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/allBook">显示全部</a>
         </div>
         <div class="col">
             <form class="row g-3 form-inline" action="${pageContext.request.contextPath}/book/queryBook" method="post">
