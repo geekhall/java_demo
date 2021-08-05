@@ -1,0 +1,50 @@
+# SpringBoot 这个配置文件一般都配置哪些东西。
+# yaml：注入到我们的配置类中
+# yaml 对空格的要求非常高
+# 普通的key-value： 采用key: 空格 value
+#server:
+#  port: 8084
+debug: true   #可以通过debug=true来确认哪些配置生效了，哪些自动配置类没有生效。
+
+name: geekhall
+server:
+  port: 8081
+
+
+# 对象：
+student:
+  name: eric
+  age: 20
+
+# 行内写法
+teacher: {name: value_from_yaml_file, age: 30}
+
+
+# 数组
+pets:
+  - cat
+  - dog
+  - fish
+
+# 行内写法
+hobby: [movie, music, coding]
+
+
+person:
+  name: geekhall${random.uuid}
+  age: ${random.int}
+  happy: false
+  birth: 1999/01/23
+  maps: {k1: v1, k2: v2}
+  list:
+    - code
+    - music
+    - movie
+  dog:
+    name: ${person.hello:Hello}_二哈 # person.hello若存在，则使用，否则使用默认值"Hello"
+    age: 8
+
+
+cat:
+  first-name: kitty
+  age: 4
