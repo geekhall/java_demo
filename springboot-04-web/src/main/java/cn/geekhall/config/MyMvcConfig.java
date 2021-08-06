@@ -15,12 +15,14 @@ import java.util.Locale;
  * @author yiny
  */
 @Configuration
-//@EnableWebMvc   // 这个注解的作用就是导入了DelegatingWebMvcConfiguration
+//@EnableWebMvc   // 这个注解的作用就是导入了DelegatingWebMvcConfiguration，如果想使用扩展SpringMVC，则一定不能添加这个注解！
 public class MyMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         // 浏览器发送/geekhall，就会跳转到success页面。
+        registry.addViewController("/").setViewName("index");
+        registry.addViewController("/index.html").setViewName("index");
         registry.addViewController("/geekhall").setViewName("success");
     }
 

@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
 
-    @RequestMapping("/index")
-    public String index(){
-        return "index";
-    }
+    // 这里可以注释掉了，因为扩展MSpringMVC的yMvcConfig类中接管了。
+//    @RequestMapping({"/","/index.html"})
+//    public String index(){
+//        return "index";
+//    }
 }
