@@ -1,9 +1,12 @@
 package cn.geekhall.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -29,6 +32,19 @@ public class MyMvcConfig implements WebMvcConfigurer {
     // 实现了视图解析器接口的类，我们就可以把它看作是视图解析器。
     public ViewResolver myViewResolver(){
         return new MyViewResolver();
+    }
+
+    // 自定义的国际化组件生效
+    @Bean
+    public LocaleResolver localeresolver(){
+        return new MyLocaleResolver();
+    }
+
+    public void addInterceptors(InterceptorRegistry registry){
+
+        registry.addInterceptor(                                                        // 添加一个拦截器
+                new LoginHandlerInterceptor()).addPathPatterns("/**")                   // 拦截哪些请求
+                .excludePathPatterns("index.html", "/", "/user/login","/css/*","/js/**", "/img/**");    // 不拦截的url
     }
 
     // 自定义一个视图解析器
