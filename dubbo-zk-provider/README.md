@@ -31,6 +31,17 @@ cd conf
 cp zoo_sample.cfg zoo.cfg
 cd ../bin
 sh zkServer.sh start
+
+```
+
+启停脚本（Users/yiny/bin/下）：
+startZooKeeper.sh
+```bash
+/Users/yiny/soft/apache-zookeeper-3.7.0-bin/bin/zkServer.sh start
+```
+stopZooKeeper.sh
+```bash
+/Users/yiny/soft/apache-zookeeper-3.7.0-bin/bin/zkServer.sh stop
 ```
 
 **执行后，服务启动成功**
