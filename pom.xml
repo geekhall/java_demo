@@ -45,6 +45,7 @@
         <module>springmvc-06-ajax</module>
         <module>dubbo-zk-api</module>
         <module>springcloud-api</module>
+        <module>springcloud-provider-dept-8011</module>
     </modules>
 
 

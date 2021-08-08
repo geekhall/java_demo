@@ -1,0 +1,21 @@
+server:
+  port: 8011
+
+
+# mybatis 配置
+mybatis:
+  type-aliases-package: cn.geekhall.bean
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+
+#  Spring配置
+spring:
+  application:
+    name: springcloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3316/db01?useSSL=true&useUnicode=true&characterEncoding=UTF-8
+    username: user01
+    password: yy123456
