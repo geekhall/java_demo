@@ -19,12 +19,12 @@ public class DeptController {
     private DeptService deptService;
 
 
-    @PostMapping("/dept/add")
+    @RequestMapping("/dept/add")
     public boolean addDept(Dept dept){
         return deptService.addDept(dept);
     }
 
-    @PostMapping("/dept/get/{id}")
+    @GetMapping("/dept/get/{id}")
     public Dept getDeptById(@PathVariable("id") Long id){
         return deptService.getDeptbyId(id);
     }
