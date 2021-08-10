@@ -19,3 +19,18 @@ spring:
     url: jdbc:mysql://127.0.0.1:3316/db01?useSSL=true&useUnicode=true&characterEncoding=UTF-8
     username: user01
     password: yy123456
+
+
+# Eureka 配置
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka8015:8015/eureka/,http://eureka8016:8016/eureka/,http://eureka8017:8017/eureka/
+  instance:
+    instance-id: springcloud-provider-dept-8011 # 修改Eureka上的默认描述信息
+
+#info配置
+info:
+  app.name: geekhall-springcloud
+  company.name: geekhall.cn

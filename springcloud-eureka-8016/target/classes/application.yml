@@ -1,0 +1,17 @@
+server:
+  port: 8016
+
+#Eureka 配置
+eureka:
+  instance:
+    hostname: springcloud-eureka-8016 # Eureka 服务端的实例名称
+  client:
+    register-with-eureka: false  # 是否向eureka注册中心注册自己
+    fetch-registry: false         # fetch-registry 如果为false，表示自己为注册中心
+    service-url:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # /etc/hosts中添加如下内容：
+      # 127.0.0.1     eureka8015
+      # 127.0.0.1     eureka8016
+      # 127.0.0.1     eureka8017
+      defaultZone: http://eureka8015:8015/eureka/,http://eureka8017:8017/eureka/

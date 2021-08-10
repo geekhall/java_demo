@@ -1,6 +1,7 @@
 package cn.geekhall.controller;
 
 import cn.geekhall.bean.Dept;
+import cn.geekhall.service.DeptClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,13 @@ public class DeptConsumerController {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String REST_URL_PREFIX = "http://localhost:8011";
+//    @Autowired
+//    private DeptClientService deptClientService;
+
+    // private static final String REST_URL_PREFIX = "http://localhost:8011";
+
+    // 使用 Ribbon 的情况不能使用固定地址，而应该使用Eureka中注册的应用地址：
+     private static final String REST_URL_PREFIX = "http://SPRINGCLOUD-PROVIDER-DEPT";
 
     @RequestMapping("/consumer/dept/get/{id}")
     public Dept get(@PathVariable("id") Long id){

@@ -30,7 +30,7 @@
         <module>basic-10-jdbc</module>
         <module>mybatis-02</module>
         <module>mybatis-03</module>
-        <module>mybatis-04</module>
+        <module>mybatis-04-multi-page</module>
         <module>mybatis-05-anno</module>
         <module>mybatis-06-one2many</module>
         <module>mybatis-07-many2one</module>
@@ -46,7 +46,10 @@
         <module>dubbo-zk-api</module>
         <module>springcloud-api</module>
         <module>springcloud-provider-dept-8011</module>
-        <module>springcloud-consumer-dept-80</module>
+        <module>springcloud-consumer-dept-8012</module>
+        <module>springcloud-eureka-8015</module>
+        <module>springcloud-eureka-8016</module>
+        <module>springcloud-eureka-8017</module>
     </modules>
 
 

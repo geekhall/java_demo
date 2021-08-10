@@ -1,3 +1,10 @@
 server:
   port: 8012
 
+
+# Eureka 配置
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka8015:8015/eureka/,http://eureka8016:8016/eureka/,http://eureka8017:8017/eureka/
