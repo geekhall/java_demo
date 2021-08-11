@@ -1,0 +1,19 @@
+package cn.geekhall.boot.configuration;
+
+import org.springframework.context.annotation.Import;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/**
+ * EnableAdp.java
+ *
+ * @author yiny
+ */
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.TYPE})
+@Import({AdpSpringConfiguration.class})
+public @interface EnableAdp {
+}

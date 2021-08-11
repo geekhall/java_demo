@@ -50,6 +50,7 @@
         <module>springcloud-eureka-8015</module>
         <module>springcloud-eureka-8016</module>
         <module>springcloud-eureka-8017</module>
+        <module>adp-boot-starter</module>
     </modules>
 
 
