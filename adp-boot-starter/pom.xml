@@ -11,6 +11,9 @@
 
     <artifactId>adp-boot-starter</artifactId>
 
+    <properties>
+        <ltts.log.home>v8ds</ltts.log.home>
+    </properties>
 
     <dependencies>
         <dependency>

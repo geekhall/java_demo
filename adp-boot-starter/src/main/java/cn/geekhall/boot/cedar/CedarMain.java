@@ -27,9 +27,10 @@ public class CedarMain {
         }
     }
 
-
     public static void checkLogParam(){
         Assert.notNull(System.getProperty("ltts.vmid"), "ltts.vmid must not be null");
-//        Assert.notNull(System.getProperty("ltts.log.home"),"ltts.log.home must not be null");
+        Assert.notNull(System.getProperty("ltts.log.home"),"ltts.log.home must not be null");
+        System.out.println(System.getProperty("ltts.vmid"));
+        System.out.println(System.getProperty("ltts.log.home"));
     }
 }
