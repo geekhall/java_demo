@@ -12,7 +12,7 @@ import javax.inject.Inject;
 @Configuration
 public class AdpSpringConfiguration {
     @Inject
-    public void AdpSpringConfiguration(){
+    public void setAdpSpringConfiguration(){
         System.out.println("==========================================");
         System.out.println("AdpSpringConfiguration 执行了");
         System.out.println("==========================================");

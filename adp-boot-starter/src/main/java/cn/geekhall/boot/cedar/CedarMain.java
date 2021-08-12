@@ -1,5 +1,6 @@
 package cn.geekhall.boot.cedar;
 
+import cn.geekhall.boot.configuration.EnableAdp;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.util.Assert;
@@ -10,6 +11,7 @@ import org.springframework.util.Assert;
  * @author yiny
  */
 @SpringBootApplication(scanBasePackages = {"cn.geekhall"})
+@EnableAdp
 public class CedarMain {
     private static final String LTTS_VMID = "ltts.vmid";
     private static final String LTTS_LOG_HOME = "ltts.log.home";
