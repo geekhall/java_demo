@@ -9,6 +9,9 @@ import java.util.ServiceLoader;
  */
 public class PayServiceTest {
     public static void main(String[] args) {
-        ServiceLoader<PayService> load = ServiceLoader.load(PayService.class);
+        ServiceLoader<PayService> services = ServiceLoader.load(PayService.class);
+        for (PayService service : services) {
+            service.pay();
+        }
     }
 }
