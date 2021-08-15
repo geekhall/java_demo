@@ -51,6 +51,10 @@
         <module>springcloud-eureka-8016</module>
         <module>springcloud-eureka-8017</module>
         <module>adp-boot-starter</module>
+        <module>java_basic_spi_alipay</module>
+        <module>java_basic_spi_wxpay</module>
+        <module>java_basic_spi_api</module>
+        <module>java_basic_spi_main</module>
     </modules>
 
 
