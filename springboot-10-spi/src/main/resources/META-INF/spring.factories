@@ -1,1 +1,4 @@
-#org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.geekhall.config.MyConfig
+cn.geekhall.config.IMyConfig=\
+cn.geekhall.config.MyConfig
+#cn.geekhall.config.MyConfigB
+
