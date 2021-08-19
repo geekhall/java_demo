@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import sun.rmi.rmic.Main;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class Springboot11SpiLoaderApplication {
 
     public static void main(String[] args) {
