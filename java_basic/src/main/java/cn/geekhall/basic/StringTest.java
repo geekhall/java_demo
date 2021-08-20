@@ -1,4 +1,4 @@
-package cn.geekhall;
+package cn.geekhall.basic;
 
 /**
  * StringTest.java
