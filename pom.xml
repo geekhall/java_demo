@@ -55,6 +55,7 @@
         <module>java_basic_spi_wxpay</module>
         <module>java_basic_spi_api</module>
         <module>java_basic_spi_main</module>
+        <module>test</module>
     </modules>
 
 
