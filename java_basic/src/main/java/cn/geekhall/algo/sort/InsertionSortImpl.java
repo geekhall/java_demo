@@ -1,5 +1,8 @@
 package cn.geekhall.algo.sort;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
 import java.util.Arrays;
 
 /**
@@ -13,7 +16,6 @@ import java.util.Arrays;
 public class InsertionSortImpl extends ArraySortBase implements IArraySort {
 
     public void sort(int[] arr) {
-
         for (int i = 1; i < arr.length; i++) {   // 从第2个元素开始遍历，默认第一个元素为有序的。
             int key = arr[i];   // 记录要插入的数据
 
@@ -29,5 +31,13 @@ public class InsertionSortImpl extends ArraySortBase implements IArraySort {
         }
     }
 
+    public static void main(String[] args) {
+        Injector injector = Guice.createInjector();
+//        int[] sample_array = {6, 1, 2, 7, 9, 3, 4, 5, 10, 8};
+        int[] sample_array = {1, 6, 2, 4, 3, 7, 5, 8, 9};
+        System.out.println(Arrays.toString(sample_array));
+        injector.getInstance(InsertionSortImpl.class).sort(sample_array);
+        System.out.println(Arrays.toString(sample_array));
+    }
 
 }
